@@ -4,31 +4,30 @@ library(shiny)
 library(tidyverse)
 library(gt)
 library(shinyWidgets)
+library(sortable)
 
 # generate dummy data ##########################################################
 data <- 
   tibble(
-    sus = paste("S", 1:25, sep = ""),
-    `A1` =  sample(0:1, 25, replace = T),
-    `A2` =  sample(0:1, 25, replace = T),
-    `A3` =  sample(0:1, 25, replace = T),
-    `A4` =  sample(0:1, 25, replace = T),
-    `A5` =  sample(0:1, 25, replace = T),
-    `A6` =  sample(0:1, 25, replace = T),
-    `A7` =  sample(0:1, 25, replace = T),
-    `A8` =  sample(0:1, 25, replace = T),
-    `A9` =  sample(0:1, 25, replace = T),
-    `A10` =  sample(0:1, 25, replace = T),
-    `A11` =  sample(0:1, 25, replace = T),
-    `A12` =  sample(0:1, 25, replace = T),
-    `A13` =  sample(0:1, 25, replace = T),
-    `A14` =  sample(0:1, 25, replace = T),
-    `A15` =  sample(0:1, 25, replace = T),
-    `A16` =  sample(0:1, 25, replace = T),
-    `A17` =  sample(0:1, 25, replace = T),
-    `A18` =  sample(0:1, 25, replace = T),
-    `A19` =  sample(0:1, 25, replace = T),
-    `A20` =  sample(0:1, 25, replace = T))
+    sus = paste("S", 1:20, sep = ""),
+    `A1` =  sample(0:1, 20, replace = T),
+    `A2` =  sample(0:1, 20, replace = T),
+    `A3` =  sample(0:1, 20, replace = T),
+    `A4` =  sample(0:1, 20, replace = T),
+    `A5` =  sample(0:1, 20, replace = T),
+    `A6` =  sample(0:1, 20, replace = T),
+    `A7` =  sample(0:1, 20, replace = T),
+    `A8` =  sample(0:1, 20, replace = T),
+    `A9` =  sample(0:1, 20, replace = T),
+    `A10` =  sample(0:1, 20, replace = T),
+    `A11` =  sample(0:1, 20, replace = T),
+    `A12` =  sample(0:1, 20, replace = T),
+    `A13` =  sample(0:1, 20, replace = T),
+    `A14` =  sample(0:1, 20, replace = T),
+    `A15` =  sample(0:1, 20, replace = T),
+    `A16` =  sample(0:1, 20, replace = T),
+    `A17` =  sample(0:1, 20, replace = T),
+    `A18` =  sample(0:1, 20, replace = T))
 
 
 # generate table ###############################################################
