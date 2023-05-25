@@ -16,9 +16,10 @@ data_gt <-
   cols_label(
     A1 = gt::html(
           paste('<div class="rotation-wrapper-outer">
-                  <div class="rotation-wrapper-inner">', 
+                  <div class="rotation-wrapper-inner">Konjunktiv erkennen ', 
                 actionButton("b1",
-                               "Imperativ erkennen") |>
+                               "",
+                             icon = icon("search")) |>
                     as.character(),
                 "</div></div>"
                )
@@ -35,28 +36,30 @@ data_gt <-
   ) |>
   opt_css(
     css = "
-    .rotation-wrapper-outer {
-         display: table;
-      }
-    .rotation-wrapper-inner {
-        padding: 50% 0;
-        height: 0;
-      }
-
-     #mygt .gt_col_heading {
-        display: block;
-  transform-origin: top left;
-  /* Note: for a CLOCKWISE rotation, use the commented-out
-     transform instead of this one. */
-  transform: rotate(-90deg) translate(-100%);
-  /* transform: rotate(90deg) translate(0, -100%); */
-  margin-top: -50%;
-
-  /* Not vital, but possibly a good idea if the element you're rotating contains
-     text and you want a single long vertical line of text and the pre-rotation
-     width of your element is small enough that the text wraps: */
+      #mygt  th.gt_col_heading {
+  /* Something you can count on */
+  height: 230px;
   white-space: nowrap;
+  overflow-x: inherit;
+  
 }
+
+#mygt th.gt_col_heading > div {
+  transform: 
+    /* Magic Numbers */
+    translate(0px, -10px)
+    /* 45 is really 360 - 45 */
+    rotate(270deg);
+  width: 40px;
+  overflow-x: inherit;
+  
+}
+#mygt th.gt_col_heading > div > span {
+  border-bottom: 1px solid #ccc;
+  padding: 5px 10px;
+  overflow-x: inherit;
+}
+
 
 
 
@@ -77,7 +80,10 @@ ui <- fluidPage(
   wellPanel(
     fluidRow(
       h4("Header"),
-      p("text")
+      p("text"),
+      actionButton("b4",
+                   "Test",
+                   icon = icon("search"))
     )
   ), 
   
