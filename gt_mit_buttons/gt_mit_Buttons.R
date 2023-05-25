@@ -46,9 +46,7 @@ data_gt <-
 
 #mygt th.gt_col_heading > div {
   transform: 
-    /* Magic Numbers */
     translate(0px, -10px)
-    /* 45 is really 360 - 45 */
     rotate(270deg);
   width: 40px;
   overflow-x: inherit;
@@ -58,13 +56,7 @@ data_gt <-
   border-bottom: 1px solid #ccc;
   padding: 5px 10px;
   overflow-x: inherit;
-}
-
-
-
-
-
-           "
+}"
     )
   
   
