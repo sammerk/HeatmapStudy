@@ -48,7 +48,7 @@ data_gt <-
   transform: 
     translate(0px, -10px)
     rotate(270deg);
-  width: 40px;
+  width: 30px;
   overflow-x: inherit;
   
 }
