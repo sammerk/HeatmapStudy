@@ -82,7 +82,7 @@ dummy_data_colsum%>%
 ###########
 
 # raw data
-data_nonametask <- read_excel("data/rohdaten_aufgabensummen_aufgabennamen nicht sprechend.xlsx")
+data_nonametask <- read_excel("gt_heatmaps/data/rohdaten_aufgabensummen_aufgabennamen nicht sprechend.xlsx")
 
 
 # color legend as ggplot element
