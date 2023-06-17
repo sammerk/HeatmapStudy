@@ -1,44 +1,50 @@
 library(shiny)
 library(gt)
 library(tidyverse)
-
-data_gt <-
-  tibble(
-    Gruppe = selectInput("i1",
-                         "",
-                         c("-", as.character(1:5))) |>
-      as.character(),
-    A1 = c(1, 0, 1),
-    A2 = c(0, 0, 1)
-  ) |>
+library(readxl)
+library(readxl)
+library(gtExtras)
+ # data <- read_csv("gt_mit_buttons/data.csv") # for interactive debugging with 
+data <- read_csv("data.csv")
+data_gt <- 
+  data |> 
+  rowwise() |> 
+  mutate(`Richtig pro SuS [%]` = mean(c_across(1:20))) |> 
+  ungroup() |> 
+  add_row(summarise(data,
+                      across(where(is.numeric), function(x) sum(x)/20),
+                      across(where(is.character), ~ "Richtig pro Aufgabe [%]"))) |> 
+  relocate(`Schüler:in`, `Richtig pro SuS [%]`) |> 
   gt(id = "mygt") |>
-  fmt_markdown(columns = vars(Gruppe)) |>
+  gt_color_rows(columns = c(`Richtig pro SuS [%]`:21), 
+                domain = c(0, 100),
+                palette = c("#4B0092", "#1AFF1A"), # color blind friendly
+                na.color = "transparent") |> 
+  #fmt_markdown(columns = vars(Gruppe)) |>
+  sub_values(columns = c(`Konjunktiv Formgleichheit`:`Konjunktiv erkennen e)`),
+             fn = function(x) between(x, 100, 100), 
+             replacement = "✓") |> 
+  sub_values(columns = c(`Konjunktiv Formgleichheit`:`Konjunktiv erkennen e)`),
+             fn = function(x) between(x, 0, 0), 
+             replacement = "⨉") |> 
+  
   cols_label(
-    A1 = gt::html(
-          paste('<div class="rotation-wrapper-outer">
-                  <div class="rotation-wrapper-inner">Konjunktiv erkennen ', 
-                actionButton("b1",
-                               "",
-                             icon = icon("search")) |>
-                    as.character(),
-                "</div></div>"
-               )
-          ),
-    A2 = gt::html(
-          paste('<div class="rotation-wrapper-outer">
-                  <div class="rotation-wrapper-inner">',
-                actionButton("b2",
-                         "Imperativ benennen") |>
-                    as.character(),
-            "</div></div>"
-           )
-    ),
-  ) |>
+    `Richtig pro SuS [%]` = gt::html(
+      paste('<div class="rotation-wrapper-outer">
+                  <div class="rotation-wrapper-inner">Richtig pro SuS [%]')),
+    `Konjunktiv Formgleichheit` = gt::html(
+      paste('<div class="rotation-wrapper-outer">
+                  <div class="rotation-wrapper-inner">Konjunktiv Formgleichheit', 
+            actionButton("Konjunktiv Formgleichheit",
+                         "",
+                         icon = icon("search")) |>
+              as.character(),
+            "</div></div>")))|>
   opt_css(
     css = "
       #mygt  th.gt_col_heading {
   /* Something you can count on */
-  height: 230px;
+  height: 260px;
   white-space: nowrap;
   overflow-x: inherit;
   
@@ -57,8 +63,7 @@ data_gt <-
   padding: 5px 10px;
   overflow-x: inherit;
 }"
-    )
-  
+  )
   
 
 
