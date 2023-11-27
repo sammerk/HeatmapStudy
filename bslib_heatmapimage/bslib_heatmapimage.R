@@ -22,7 +22,6 @@ ui <-
   wellPanel(
     h4("Bildung homogener Lerngruppen anhand einer Lernzielkontrolle"),
     p("Eine Lehrerin hat eine Lernzielkontrolle durchgeführt und möchte darauf basierend binnendifferenziert unterrichten. Deshalb will sie ihre Klasse in homogene Lerngruppen anhand der Ergebnisse einteilen. Sie ist gemeinsam mit weiteren pädagogischen Fachkräften in der Klasse, sodass alle Lerngruppen gut begleitet werden können."), 
-    p("Die Lehrerin überlegt, wie sie die homogenen Gruppen auf Basis der Lernzielkontrolle einteilen soll und welche Lernziele die Gruppen verfolgen sollen.")
   ),
   
   # Tasks ####
@@ -36,7 +35,7 @@ ui <-
              wellPanel(
                h6("Ergebnisse"),
                img(
-                 src = 'hm.png',
+                 src = 'hm_sorted.png',
                  align = "center",
                  width = "100%"
                )
@@ -44,19 +43,36 @@ ui <-
     ), 
       column(3,
              wellPanel(
-               h6("Aufgaben"),
+               h6("Aufgaben mit Lösungen"),
                actionButton(inputId = 'modal_all_tasks', 
                             label = 'Alle Aufgaben anschauen'),
                h6(""),
                selectInput(
                  selected = NULL,
                  "modal_single_task",
-                 "Ausgewählte Aufgaben anschauen",
+                 "Einzelne Aufgaben anschauen",
                  choices = c(
-                   "Aufgabe ...",
-                   "Indikativ erkennen d)",
-                   "Indikativ erkennen b)",
-                   "Hund"
+                   "Aufgabe ...", 
+                   "1. Konjunktiv Formgleichheit", 
+                   "2. Konjunktiv II bilden a)", 
+                   "3. Konjunktiv II bilden b)", 
+                   "4. Konjunktiv II bilden c)", 
+                   "5. Unterschied Konjunktiv I/II", 
+                   "6. Konjunktiv erkennen a)", 
+                   "7. Konjunktiv erkennen b)", 
+                   "8. Konjunktiv erkennen c)", 
+                   "9. Konjunktiv erkennen d)", 
+                   "10. Konjunktiv erkennen e)",
+                   "11. Imperativ erkennen a)", 
+                   "12. Imperativ erkennen b)", 
+                   "13. Imperativ erkennen c)", 
+                   "14. Imperativ erkennen d)", 
+                   "15. Imperativ erkennen e)", 
+                   "16. Indikativ erkennen a)",
+                   "17. Indikativ erkennen b)", 
+                   "18. Indikativ erkennen c)", 
+                   "19. Indikativ erkennen d)", 
+                   "20. Indikativ erkennen e)"
                  )
                )
              )))), 
@@ -87,7 +103,9 @@ ui <-
                               orientation = "horizontal",
                               add_rank_list(
                                 text = "Noch zuzuordnen",
-                                labels = LETTERS[1:18],
+                                labels = c("Schüler:in01", "Schüler:in02", "Schüler:in03", "Schüler:in04", "Schüler:in05", "Schüler:in06", "Schüler:in07", 
+                                           "Schüler:in08", "Schüler:in09", "Schüler:in10", "Schüler:in11", "Schüler:in12", "Schüler:in13", "Schüler:in14", 
+                                           "Schüler:in15", "Schüler:in16", "Schüler:in17", "Schüler:in18"),
                                 input_id = "rank_list_10"
                               ),
                               add_rank_list(
@@ -108,7 +126,9 @@ ui <-
                               orientation = "horizontal",
                               add_rank_list(
                                 text = "Noch zuzuordnen",
-                                labels = LETTERS[1:24],
+                                labels = c("Schüler:in01", "Schüler:in02", "Schüler:in03", "Schüler:in04", "Schüler:in05", "Schüler:in06", "Schüler:in07", 
+                                           "Schüler:in08", "Schüler:in09", "Schüler:in10", "Schüler:in11", "Schüler:in12", "Schüler:in13", "Schüler:in14", 
+                                           "Schüler:in15", "Schüler:in16", "Schüler:in17", "Schüler:in18"),
                                 input_id = "rank_list_20"
                               ),
                               add_rank_list(
@@ -134,7 +154,9 @@ ui <-
                               orientation = "horizontal",
                               add_rank_list(
                                 text = "Noch zuzuordnen",
-                                labels = LETTERS[1:24],
+                                labels = c("Schüler:in01", "Schüler:in02", "Schüler:in03", "Schüler:in04", "Schüler:in05", "Schüler:in06", "Schüler:in07", 
+                                           "Schüler:in08", "Schüler:in09", "Schüler:in10", "Schüler:in11", "Schüler:in12", "Schüler:in13", "Schüler:in14", 
+                                           "Schüler:in15", "Schüler:in16", "Schüler:in17", "Schüler:in18"),
                                 input_id = "rank_list_30"
                               ),
                               add_rank_list(
@@ -165,7 +187,9 @@ ui <-
                               orientation = "horizontal",
                               add_rank_list(
                                 text = "Noch zuzuordnen",
-                                labels = LETTERS[1:24],
+                                labels = c("Schüler:in01", "Schüler:in02", "Schüler:in03", "Schüler:in04", "Schüler:in05", "Schüler:in06", "Schüler:in07", 
+                                           "Schüler:in08", "Schüler:in09", "Schüler:in10", "Schüler:in11", "Schüler:in12", "Schüler:in13", "Schüler:in14", 
+                                           "Schüler:in15", "Schüler:in16", "Schüler:in17", "Schüler:in18"),
                                 input_id = "rank_list_40"
                               ),
                               add_rank_list(
@@ -203,7 +227,9 @@ ui <-
                                 orientation = "horizontal",
                                 add_rank_list(
                                   text = "Noch zuzuordnen",
-                                  labels = LETTERS[1:24],
+                                  labels = c("Schüler:in01", "Schüler:in02", "Schüler:in03", "Schüler:in04", "Schüler:in05", "Schüler:in06", "Schüler:in07", 
+                                             "Schüler:in08", "Schüler:in09", "Schüler:in10", "Schüler:in11", "Schüler:in12", "Schüler:in13", "Schüler:in14", 
+                                             "Schüler:in15", "Schüler:in16", "Schüler:in17", "Schüler:in18"),
                                   input_id = "rank_list_50"
                                 ),
                                 add_rank_list(
@@ -243,7 +269,9 @@ ui <-
                                 orientation = "horizontal",
                                 add_rank_list(
                                   text = "Noch zuzuordnen",
-                                  labels = LETTERS[1:24],
+                                  labels = c("Schüler:in01", "Schüler:in02", "Schüler:in03", "Schüler:in04", "Schüler:in05", "Schüler:in06", "Schüler:in07", 
+                                             "Schüler:in08", "Schüler:in09", "Schüler:in10", "Schüler:in11", "Schüler:in12", "Schüler:in13", "Schüler:in14", 
+                                             "Schüler:in15", "Schüler:in16", "Schüler:in17", "Schüler:in18"),
                                   input_id = "rank_list_60"
                                 ),
                                 add_rank_list(
@@ -289,7 +317,9 @@ ui <-
                                 orientation = "horizontal",
                                 add_rank_list(
                                   text = "Noch zuzuordnen",
-                                  labels = LETTERS[1:24],
+                                  labels = c("Schüler:in01", "Schüler:in02", "Schüler:in03", "Schüler:in04", "Schüler:in05", "Schüler:in06", "Schüler:in07", 
+                                             "Schüler:in08", "Schüler:in09", "Schüler:in10", "Schüler:in11", "Schüler:in12", "Schüler:in13", "Schüler:in14", 
+                                             "Schüler:in15", "Schüler:in16", "Schüler:in17", "Schüler:in18"),
                                   input_id = "rank_list_70"
                                 ),
                                 add_rank_list(
@@ -338,7 +368,9 @@ ui <-
                                 orientation = "horizontal",
                                 add_rank_list(
                                   text = "Noch zuzuordnen",
-                                  labels = LETTERS[1:24],
+                                  labels = c("Schüler:in01", "Schüler:in02", "Schüler:in03", "Schüler:in04", "Schüler:in05", "Schüler:in06", "Schüler:in07", 
+                                             "Schüler:in08", "Schüler:in09", "Schüler:in10", "Schüler:in11", "Schüler:in12", "Schüler:in13", "Schüler:in14", 
+                                             "Schüler:in15", "Schüler:in16", "Schüler:in17", "Schüler:in18"),
                                   input_id = "rank_list_80"
                                 ),
                                 add_rank_list(
@@ -398,8 +430,11 @@ server <- function(input, output, session) {
   observeEvent(input$modal_all_tasks, {
     showModal(modalDialog(
      card(
+       max_height = 800,
+      #height = 800, # verzieht es bei png und svg weil statisch, eher ungeeignet
+       full_screen = TRUE, # durch weiteren Klick kann man Vollbildmodus machen 
        card_image(
-         file = "www/tasks_demo.png"
+         file = "www/test_alltasks_ppp_svg.svg", 
        )
      ),
       easyClose = T)
@@ -413,16 +448,35 @@ server <- function(input, output, session) {
       card(
         card_image(
           file = case_when(
-            input$modal_single_task == "Indikativ erkennen d)" ~ "www/a1.svg",
-            input$modal_single_task == "Indikativ erkennen b)" ~ "www/a2.svg",
-            T ~ "www/a3.svg" )
+            input$modal_single_task == "1. Konjunktiv Formgleichheit" ~ "www/a1.svg",
+            input$modal_single_task == "2. Konjunktiv II bilden a)" ~ "www/a2.svg",
+            input$modal_single_task == "3. Konjunktiv II bilden b)" ~ "www/a3.svg", 
+            input$modal_single_task == "4. Konjunktiv II bilden c)" ~ "www/a4.svg", 
+            input$modal_single_task == "5. Unterschied Konjunktiv I/II" ~ "www/a5.svg", 
+            input$modal_single_task == "6. Konjunktiv erkennen a)" ~ "www/a6.svg", 
+            input$modal_single_task == "7. Konjunktiv erkennen b)" ~ "www/a7.svg", 
+            input$modal_single_task == "8. Konjunktiv erkennen c)" ~ "www/a8.svg", 
+            input$modal_single_task == "9. Konjunktiv erkennen d)" ~ "www/a9.svg", 
+            input$modal_single_task == "10. Konjunktiv erkennen e)" ~ "www/a10.svg", 
+            input$modal_single_task == "11. Imperativ erkennen a)" ~ "www/a11.svg", 
+            input$modal_single_task == "12. Imperativ erkennen b)" ~ "www/a12.svg", 
+            input$modal_single_task == "13. Imperativ erkennen c)" ~ "www/a13.svg", 
+            input$modal_single_task == "14. Imperativ erkennen d)" ~ "www/a14.svg", 
+            input$modal_single_task == "15. Imperativ erkennen e)" ~ "www/a15.svg", 
+            input$modal_single_task == "16. Indikativ erkennen a)" ~ "www/a16.svg", 
+            input$modal_single_task == "17. Indikativ erkennen b)" ~ "www/a17.svg", 
+            input$modal_single_task == "18. Indikativ erkennen c)" ~ "www/a18.svg", 
+            input$modal_single_task == "19. Indikativ erkennen d)" ~ "www/a19.svg", 
+            input$modal_single_task == "20. Indikativ erkennen e)" ~ "www/a20.svg", 
+            T ~ "www/up-long-so.svg")
         )
       ),
       easyClose = T)
     )
   })
   
-  
+
+
   # render gt ####  output$gt <-  
     render_gt({data_gt_unsorted_heatmap}) 
   

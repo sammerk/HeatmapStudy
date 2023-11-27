@@ -65,9 +65,9 @@ data_gt_sorted_heatmap <- # gt object: ordered heatmap
     `Konjunktiv Formgleichheit` = gt::html(
       paste('<div class="rotation-wrapper-outer">
                   <div class="rotation-wrapper-inner">Konjunktiv Formgleichheit', 
-            actionButton("Konjunktiv Formgleichheit",
-                         "", style='padding:1px; font-size:90%', 
-                         icon = icon("search")) |>
+            #actionButton("Konjunktiv Formgleichheit",
+             #            "", style='padding:1px; font-size:90%', 
+              #           icon = icon("search")) |>
               as.character(),
             "</div></div>")), 
     `Konjunktiv erkennen a)` = gt::html(
@@ -324,9 +324,9 @@ data_gt_unsorted_heatmap <- # gt object: unordered heatmap
     `Konjunktiv Formgleichheit` = gt::html(
       paste('<div class="rotation-wrapper-outer">
                   <div class="rotation-wrapper-inner">Konjunktiv Formgleichheit', 
-            actionButton("Konjunktiv Formgleichheit",
-                         "", style='padding:1px; font-size:90%', 
-                         icon = icon("search")) |>
+            #actionButton("Konjunktiv Formgleichheit",
+             #            "", style='padding:1px; font-size:90%', 
+              #           icon = icon("search")) |>
               as.character(),
             "</div></div>")), 
     `Konjunktiv erkennen a)` = gt::html(
