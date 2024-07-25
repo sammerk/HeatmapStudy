@@ -434,7 +434,7 @@ server <- function(input, output, session) {
       #height = 800, # verzieht es bei png und svg weil statisch, eher ungeeignet
        full_screen = TRUE, # durch weiteren Klick kann man Vollbildmodus machen 
        card_image(
-         file = "www/test_alltasks_ppp_svg.svg", 
+         file = "www/all_tasks.png", 
        )
      ),
       easyClose = T)
